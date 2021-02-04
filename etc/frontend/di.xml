@@ -4,7 +4,9 @@
     <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
         <plugin name="Yireo_Webp2::addWebpToConfigurableJsonConfig" type="Yireo\Webp2\Plugin\AddWebpToConfigurableJsonConfig"/>
     </type>
-
+    <type name="Magento\Swatches\Helper\Data">
+        <plugin name="Yireo_Webp2::addWebpToConfigurableJsonConfig" type="Yireo\Webp2\Plugin\AddWebpToConfigurableJsonConfig"/>
+    </type>
     <type name="Magento\Catalog\Block\Product\View\Gallery">
         <plugin name="Yireo_Webp2::addWebpToGalleryImagesJson" type="Yireo\Webp2\Plugin\AddWebpToGalleryImagesJson"/>
     </type>

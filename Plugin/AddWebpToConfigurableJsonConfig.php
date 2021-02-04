@@ -3,6 +3,7 @@
 namespace Yireo\Webp2\Plugin;
 
 use Magento\ConfigurableProduct\Block\Product\View\Type\Configurable;
+use Magento\Swatches\Helper\Data;
 use Magento\Framework\Serialize\SerializerInterface;
 use Yireo\NextGenImages\Exception\ConvertorException;
 use Yireo\Webp2\Convertor\Convertor;
@@ -80,4 +81,18 @@ class AddWebpToConfigurableJsonConfig
     {
         return $this->convertor->getSourceImage($url)->getUrl();
     }
+
+    /**
+     * @param Data $subject
+     * @param array $images
+     * @return array
+     * @throws ConvertorException
+     */
+    public function afterGetAllSizeImages(Data $subject, $images): array
+    {
+        $images['large_webp'] = $this->getWebpUrl($images['large']);
+        $images['medium_webp'] = $this->getWebpUrl($images['medium']);
+        $images['small_webp'] = $this->getWebpUrl($images['small']);
+        return $images;
+   }
 }
